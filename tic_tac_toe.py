@@ -33,8 +33,12 @@ def play_game():
     display_board(board)
 
     while True:
-        row = int(input("Enter row (0-2) for " + current_player + ": "))
-        col = int(input("Enter column (0-2) for " + current_player + ": "))
+        try:
+            row = int(input("Enter row (0-2) for " + current_player + ": "))
+            col = int(input("Enter column (0-2) for " + current_player + ": "))
+        except ValueError:
+            print("Please enter a number. Try again.")
+            continue
 
         # Check that row and column are in range (0-2)
         if row < 0 or row > 2 or col < 0 or col > 2:
